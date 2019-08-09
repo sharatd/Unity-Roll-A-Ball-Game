@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour{
 
   private Rigidbody rb;
   private int count;
-  private int collisions;
+  private int deactive;
   private int index;
   private float startTime;
 
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour{
   void Start(){
     rb = GetComponent<Rigidbody>();
     count = 0;
-    collisions = 0;
+    deactive = 0;
     SetCountText ();
     winText.text = "";
 
@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour{
 
   void OnCollisionEnter(Collision other){
     if (other.gameObject.CompareTag("Collision")){
-      collisions++;
       count--;
       CreateCubes();
       SetCountText();
@@ -80,12 +79,18 @@ public class PlayerController : MonoBehaviour{
   }
 
   void CreateCubes (){
-    if (collisions > count){
-      for (int i = 1; i <= count; i++){
-        index = Random.Range (0, cubes.Length);
+    index = Random.Range(0, cubes.Length);
+    for (int i = 0; i < cubes.Length; i++){
+      if (cubes[i].activeSelf == false){
+        deactive++;
+      }
+    }
+    if (deactive > count){
+      for (int j = 1; j < deactive - count; j++){
         cubes[index].SetActive(true);
       }
     }
   }
+
 
 }
