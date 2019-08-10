@@ -1,5 +1,5 @@
 # Unity-Roll-A-Ball
-The user gets points by hitting targets and negative points for colliding with walls. Also, random targets regenerate after the user hits 
+The user gets points by hitting targets. I improved upon the basic Roll-A-Ball game tutorial by including negative points for colliding with walls. Also, random targets regenerate after the user hits 
 a wall and there are multiple UIs for the user's points and time elapsed as well as a final message for when the user wins. 
 As I became familiar with Unity and the C# language, I was able to apply some of the object-oriented programming I learned from Java
 while also learning new skills. For instance, I figured out how to make a trigger for each collectible so that a certain target 
